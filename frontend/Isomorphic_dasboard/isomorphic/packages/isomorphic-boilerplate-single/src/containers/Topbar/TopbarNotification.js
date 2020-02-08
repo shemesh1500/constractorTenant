@@ -7,27 +7,33 @@ import TopbarDropdownWrapper from './TopbarDropdown.styles';
 const demoNotifications = [
   {
     id: 1,
-    name: 'David Doe',
+    name: 'שלמה שמש בחר ריצוף',
     notification:
-      'A National Book Award Finalist An Edgar Award Finalist A California Book Award Gold Medal Winner',
+      ' דירה 17 קומה 5 ריצוף : 1312',
   },
   {
     id: 2,
-    name: 'Navis Doe',
+    name: 'שלמה שמש בחר ריצוף',
     notification:
-      'A National Book Award Finalist An Edgar Award Finalist A California Book Award Gold Medal Winner',
+      ' דירה 17 קומה 5 ריצוף : 1312',
   },
   {
     id: 3,
-    name: 'Emanual Doe',
+    name: 'שלמה שמש בחר ריצוף',
     notification:
-      'A National Book Award Finalist An Edgar Award Finalist A California Book Award Gold Medal Winner',
+      ' דירה 17 קומה 5 ריצוף : 1312',
   },
   {
     id: 4,
-    name: 'Dowain Doe',
+    name: 'שלמה שמש בחר ריצוף',
     notification:
-      'A National Book Award Finalist An Edgar Award Finalist A California Book Award Gold Medal Winner',
+      ' דירה 17 קומה 5 ריצוף : 1312',
+  },
+  {
+    id: 5,
+    name: 'שלמה שמש בחר ריצוף',
+    notification:
+      ' דירה 17 קומה 5 ריצוף : 1312',
   },
 ];
 

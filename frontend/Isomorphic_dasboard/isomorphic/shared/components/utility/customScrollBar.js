@@ -13,6 +13,12 @@ export default ({ id, style, children, className }) => (
     autoHeightMax={200}
     thumbMinSize={30}
     universal={true}
+    renderView={(props) => <div {...props} style={{
+      ...props.style,
+      marginLeft: props.style.marginRight,
+      marginRight: 0
+    }} />
+    }
   >
     {children}
   </Scrollbars>

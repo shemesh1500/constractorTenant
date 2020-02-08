@@ -1,4 +1,4 @@
-const language = 'english';
-export const langDir = 'ltr';
+const language = 'he';
+export const langDir = 'rtl';
 
 export default language;

@@ -42,8 +42,8 @@ export function* loginError() {
 
 export function* logout() {
   yield takeEvery(actions.LOGOUT, function*() {
-    clearToken();
-    yield put(history.push('/'));
+    yield clearToken();
+    history.push('/');
   });
 }
 export function* checkAuthorization() {

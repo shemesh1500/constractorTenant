@@ -12,7 +12,7 @@ export default ({ id, style, children, className }) => (
     autoHeightMin={0}
     autoHeightMax={200}
     thumbMinSize={30}
-    universal={true}
+    universal
   >
     {children}
   </Scrollbars>

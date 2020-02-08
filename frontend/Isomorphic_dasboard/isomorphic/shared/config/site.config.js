@@ -1,7 +1,7 @@
 export default {
-  siteName: 'ISOMORPHIC',
-  siteIcon: 'ion-flash',
-  footerText: `Isomorphic @ ${new Date().getFullYear()} Created by RedQ, Inc`,
+  siteName: 'הפרוייקט שלי',
+  siteIcon: 'ion-home',
+  footerText: `My Project @ ${new Date().getFullYear()} Created by  Shlomo & Jehoni, Inc`,
   enableAnimatedRoute: false,
   apiUrl: 'http://yoursite.com/api/',
   google: {

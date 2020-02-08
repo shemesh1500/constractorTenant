@@ -9,5 +9,10 @@ const options = [
     label: 'sidebar.authCheck',
     leftIcon: 'ion-document',
   },
+  {
+    key: 'Chat',
+    label: 'sidebar.Chat',
+    leftIcon: 'ion-document',
+  },
 ];
 export default options;

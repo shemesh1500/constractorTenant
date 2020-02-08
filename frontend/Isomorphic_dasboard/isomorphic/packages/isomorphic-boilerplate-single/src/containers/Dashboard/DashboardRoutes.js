@@ -8,7 +8,6 @@ const routes = [
     component: lazy(() => import('../DashboardHomePage')),
     exact: true,
   },
-
   {
     path: 'blankPage',
     component: lazy(() => import('../BlankPage')),
@@ -16,6 +15,10 @@ const routes = [
   {
     path: 'authCheck',
     component: lazy(() => import('../AuthCheck')),
+  },
+  {
+    path: 'chat',
+    component: lazy(() => import('@iso/containers/Chat/Chat')),
   },
 ];
 

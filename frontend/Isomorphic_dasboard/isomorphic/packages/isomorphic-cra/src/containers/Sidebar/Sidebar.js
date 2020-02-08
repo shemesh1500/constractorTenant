@@ -123,7 +123,7 @@ export default function Sidebar() {
                 singleOption={singleOption}
               />
             ))}
-            {/* Demo Menu */}
+            {/* Demo Menu
             <SubMenu
               key="sub1"
               title={
@@ -134,8 +134,8 @@ export default function Sidebar() {
                   </span>
                 </span>
               }
-            >
-              <MenuItemGroup
+            > */}
+            {/* <MenuItemGroup
                 key="g1"
                 title={<IntlMessages id="sidebar.item1" />}
               >
@@ -156,11 +156,11 @@ export default function Sidebar() {
                 <Menu.Item style={submenuStyle} key="4">
                   <IntlMessages id="sidebar.option4" />
                 </Menu.Item>
-              </MenuItemGroup>
-            </SubMenu>
+              </MenuItemGroup> */}
+            {/* </SubMenu> */}
           </Menu>
         </Scrollbars>
       </Sider>
-    </SidebarWrapper>
+    </SidebarWrapper >
   );
 }

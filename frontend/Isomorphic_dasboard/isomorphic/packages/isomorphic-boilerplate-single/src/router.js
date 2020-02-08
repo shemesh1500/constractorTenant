@@ -41,13 +41,13 @@ function PrivateRoute({ children, ...rest }) {
         isLoggedIn ? (
           children
         ) : (
-          <Redirect
-            to={{
-              pathname: '/signin',
-              state: { from: location },
-            }}
-          />
-        )
+            <Redirect
+              to={{
+                pathname: '/signin',
+                state: { from: location },
+              }}
+            />
+          )
       }
     />
   );

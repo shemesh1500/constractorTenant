@@ -24,7 +24,7 @@ export default function SignIn() {
   let history = useHistory();
   let location = useLocation();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(state => state.Auth.idToken);
+  const isLoggedIn = false;// useSelector(state => state.Auth.idToken);
 
   const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
   React.useEffect(() => {

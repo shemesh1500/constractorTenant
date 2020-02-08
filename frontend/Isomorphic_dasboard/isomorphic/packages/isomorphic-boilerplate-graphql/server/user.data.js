@@ -1,5 +1,5 @@
 module.exports = {
-  uid: 1,
+  uid: 3,
   name: 'Samwell Martina',
   username: '@samwell_martina',
   avatar:
