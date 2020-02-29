@@ -2,7 +2,7 @@ var path = require('path');
 var fs = require('fs');
 const { override, babelInclude, fixBabelImports } = require('customize-cra');
 
-module.exports = function(config, env) {
+module.exports = function (config, env) {
   return Object.assign(
     config,
     override(

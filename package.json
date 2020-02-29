@@ -6,7 +6,7 @@
   "author": "RedQ, Inc",
   "workspaces": [
     "shared/*",
-    "src/"
+    "app/"
   ],
   "scripts": {
     "clean": "lerna clean --yes && rimraf node_modules",
@@ -33,7 +33,6 @@
     "lerna": "^3.16.4",
     "lint-staged": "^9.4.0",
     "prettier": "^1.18.2",
-    "redux-devtools-extension": "^2.13.8",
     "rimraf": "^3.0.0",
     "serve": "^11.2.0"
   }

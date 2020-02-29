@@ -21,10 +21,11 @@ const { login } = authAction;
 const { clearMenu } = appAction;
 
 export default function SignIn() {
+
   let history = useHistory();
   let location = useLocation();
   const dispatch = useDispatch();
-  const isLoggedIn = false;// useSelector(state => state.Auth.idToken);
+  const isLoggedIn = useSelector(state => state.Auth.idToken);
 
   const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
   React.useEffect(() => {
@@ -90,21 +91,6 @@ export default function SignIn() {
               </p>
             </form>
             <div className="isoInputWrapper isoOtherLogin">
-              <Button
-                onClick={signInWithFacebook}
-                type="primary"
-                className="btnFacebook"
-              >
-                <IntlMessages id="page.signInFacebook" />
-              </Button>
-              <Button
-                onClick={signInWithGoogle}
-                type="primary"
-                className="btnGooglePlus"
-              >
-                <IntlMessages id="page.signInGooglePlus" />
-              </Button>
-
               <Button
                 onClick={() => {
                   Auth0.login();
