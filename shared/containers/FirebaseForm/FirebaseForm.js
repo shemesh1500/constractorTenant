@@ -9,11 +9,10 @@ import {
   resetPassword,
 } from '@iso/lib/firebase/firebase.authentication.util';
 
-export default function(props) {
+export default function (props) {
   const [state, setState] = React.useState({
-    visible: false,
-    email: 'demo@gmail.com',
-    password: 'demodemo',
+    email: '',
+    password: '',
     confirmLoading: false,
   });
   const handleChange = e => {
@@ -21,18 +20,6 @@ export default function(props) {
     setState({
       ...state,
       [name]: value,
-    });
-  };
-  const showModal = () => {
-    setState({
-      ...state,
-      visible: true,
-    });
-  };
-  const handleCancel = e => {
-    setState({
-      ...state,
-      visible: false,
     });
   };
   const handleLogin = async () => {
@@ -93,10 +80,10 @@ export default function(props) {
   };
   return (
     <>
-      <Button type="primary" onClick={showModal} className="btnFirebase">
+      {/* <Button type="primary" onClick={showModal} className="btnFirebase">
         {props.signup ? 'Sign up with Firebase' : 'Sign in with Firebase'}
-      </Button>
-      <Modal
+      </Button> */}
+      {/* <Modal
         title={props.signup ? 'Sign up with Firebase' : 'Sign in with Firebase'}
         visible={state.visible}
         confirmLoading={state.confirmLoading}
@@ -105,34 +92,34 @@ export default function(props) {
         className="isoFirebaseLoginModal"
         cancelText="Cancel"
         okText={props.signup ? 'Sign Up' : 'Login'}
-      >
-        <form>
-          <div className="isoInputWrapper">
-            <label>Email</label>
-            <Input
-              name="email"
-              size="large"
-              placeholder="Email"
-              value={state.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="isoInputWrapper" style={{ marginBottom: 10 }}>
-            <label>Password</label>
-            <Input
-              name="password"
-              type="password"
-              size="large"
-              placeholder="Password"
-              value={state.password}
-              onChange={handleChange}
-            />
-          </div>
-          <span className="isoResetPass" onClick={handleResetPassword}>
-            Reset Password
+      > */}
+      <form>
+        <div className="isoInputWrapper">
+          <label>Email</label>
+          <Input
+            name="email"
+            size="large"
+            placeholder="Email"
+            value={state.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="isoInputWrapper" style={{ marginBottom: 10 }}>
+          <label>Password</label>
+          <Input
+            name="password"
+            type="password"
+            size="large"
+            placeholder="Password"
+            value={state.password}
+            onChange={handleChange}
+          />
+        </div>
+        <span className="isoResetPass" onClick={handleResetPassword}>
+          Reset Password
           </span>
-        </form>
-      </Modal>
+      </form>
+      {/* </Modal> */}
     </>
   );
 }

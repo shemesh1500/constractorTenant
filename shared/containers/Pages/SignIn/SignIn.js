@@ -5,16 +5,13 @@ import Input from '@iso/components/uielements/input';
 import Checkbox from '@iso/components/uielements/checkbox';
 import Button from '@iso/components/uielements/button';
 import IntlMessages from '@iso/components/utility/intlMessages';
-import FirebaseLoginForm from '../../FirebaseForm/FirebaseForm';
+import { notification } from '@iso/components';
+import {
+  signInWithEmail,
+  resetPassword,
+} from '@iso/lib/firebase/firebase.authentication.util';
 import authAction from '@iso/redux/auth/actions';
 import appAction from '@iso/redux/app/actions';
-import Auth0 from '../../Authentication/Auth0/Auth0';
-import {
-  signInWithGoogle,
-  signInWithFacebook,
-  signInWithGithub,
-  signInWithTwitter,
-} from '@iso/lib/firebase/firebase.authentication.util';
 import SignInStyleWrapper from './SignIn.styles';
 
 const { login } = authAction;
@@ -27,6 +24,64 @@ export default function SignIn() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(state => state.Auth.idToken);
 
+  const [state, setState] = React.useState({
+    email: '',
+    password: '',
+    confirmLoading: false,
+  });
+  const handleChange = e => {
+    const { name, value } = e.target;
+    console.log(name)
+    setState({
+      ...state,
+      [name]: value,
+    });
+  };
+  const handleLogin = async () => {
+    const { email, password } = state;
+    if (!(email && password)) {
+      notification('error', 'Please fill in email. and password');
+      return;
+    }
+    setState({
+      ...state,
+      confirmLoading: true,
+    });
+    let user;
+    let message;
+    try {
+      await signInWithEmail(email, password).then(authUser => {
+        user = authUser.user;
+      });
+    } catch (error) {
+      message = error.message;
+      console.log(error.message, 'Error');
+    }
+    if (user) {
+      const token = await user.getIdToken();
+      dispatch(login(token));
+      history.push('/dashboard');
+    } else {
+      notification('error', message);
+      setState({
+        ...state,
+        confirmLoading: false,
+      });
+    }
+  };
+  const handleResetPassword = () => {
+    const { email } = state;
+    if (!email) {
+      notification('error', `Please fill in email.`);
+      return;
+    }
+    resetPassword(email)
+      .then(() =>
+        notification('success', `Password reset email sent to ${email}.`)
+      )
+      .catch(error => notification('error', 'Email address not found.'));
+  };
+
   const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
   React.useEffect(() => {
     if (isLoggedIn) {
@@ -34,16 +89,6 @@ export default function SignIn() {
     }
   }, [isLoggedIn]);
 
-  function handleLogin(e, token = false) {
-    e.preventDefault();
-    if (token) {
-      dispatch(login(token));
-    } else {
-      dispatch(login());
-    }
-    dispatch(clearMenu());
-    history.push('/dashboard');
-  }
   let { from } = location.state || { from: { pathname: '/dashboard' } };
 
   if (redirectToReferrer) {
@@ -62,18 +107,22 @@ export default function SignIn() {
             <form>
               <div className="isoInputWrapper">
                 <Input
+                  name="email"
                   size="large"
-                  placeholder="Username"
+                  placeholder="email"
                   autoComplete="true"
+                  onChange={handleChange}
                 />
               </div>
 
               <div className="isoInputWrapper">
                 <Input
+                  name="password"
                   size="large"
                   type="password"
                   placeholder="Password"
                   autoComplete="false"
+                  onChange={handleChange}
                 />
               </div>
 
@@ -90,22 +139,6 @@ export default function SignIn() {
                 <IntlMessages id="page.signInPreview" />
               </p>
             </form>
-            <div className="isoInputWrapper isoOtherLogin">
-              <Button
-                onClick={() => {
-                  Auth0.login();
-                }}
-                type="primary"
-                className="btnAuthZero"
-              >
-                <IntlMessages id="page.signInAuth0" />
-              </Button>
-
-              <FirebaseLoginForm
-                history={history}
-                login={token => dispatch(login(token))}
-              />
-            </div>
             <div className="isoCenterComponent isoHelperWrapper">
               <Link to="/forgotpassword" className="isoForgotPass">
                 <IntlMessages id="page.signInForgotPass" />
