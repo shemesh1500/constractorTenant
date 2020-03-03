@@ -8,6 +8,12 @@ export default ({ id, style, children, className }) => (
     autoHide
     autoHideTimeout={1000}
     autoHideDuration={200}
+    // for rtl side bar
+    renderView={props =>
+      (<div
+        {...props} style={{ ...props.style, marginLeft: props.style.marginRight, marginRight: 0, }}
+      />)
+    }
     // autoHeight
     autoHeightMin={0}
     autoHeightMax={200}
