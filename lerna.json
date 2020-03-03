@@ -1,9 +1,0 @@
-{
-  "packages": [
-    "shared/*",
-    "app/"
-  ],
-  "version": "independent",
-  "npmClient": "yarn",
-  "useWorkspaces": true
-}
