@@ -91,7 +91,7 @@ export default function SignIn() {
         <div className="isoLoginContent">
           <div className="isoLogoWrapper">
             <Link to="/dashboard">
-              <IntlMessages id="page.signInTitle" />
+              <IntlMessages id="הקבלן והדייר"  />
             </Link>
           </div>
           <div className="isoSignInForm">
@@ -119,15 +119,12 @@ export default function SignIn() {
 
               <div className="isoInputWrapper isoLeftRightComponent">
                 <Checkbox>
-                  <IntlMessages id="page.signInRememberMe" />
+                  <IntlMessages id="זכור אותי" />
                 </Checkbox>
                 <Button type="primary" onClick={handleLogin}>
-                  <IntlMessages id="page.signInButton" />
+                  <IntlMessages id="כניסה" />
                 </Button>
               </div>
-              <p className="isoHelperText">
-                <IntlMessages id="page.signInPreview" />
-              </p>
             </form>
           </div>
         </div>
