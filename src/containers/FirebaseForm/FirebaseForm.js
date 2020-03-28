@@ -12,8 +12,8 @@ import {
 export default function(props) {
   const [state, setState] = React.useState({
     visible: false,
-    email: 'demo@gmail.com',
-    password: 'demodemo',
+    email: '',
+    password: '',
     confirmLoading: false,
   });
   const handleChange = e => {
@@ -94,10 +94,10 @@ export default function(props) {
   return (
     <>
       <Button type="primary" onClick={showModal} className="btnFirebase">
-        {props.signup ? 'Sign up with Firebase' : 'Sign in with Firebase'}
+        {props.signup ? 'Sign up' : 'Sign in'}
       </Button>
       <Modal
-        title={props.signup ? 'Sign up with Firebase' : 'Sign in with Firebase'}
+        title={props.signup ? 'Sign up' : 'Sign in'}
         visible={state.visible}
         confirmLoading={state.confirmLoading}
         onCancel={handleCancel}
